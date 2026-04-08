@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="context-call-center-rates" name="Call_Center_Rates_Context">
+    <mxGraphModel dx="1084" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2600" pageHeight="1800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=22;align=center;verticalAlign=middle;" value="C4 Context. Передача ставок в кол-центры" vertex="1">
+          <mxGeometry height="50" width="1800" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="operator-internal" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=16;" value="Оператор внутреннего&#xa;кол-центра" vertex="1">
+          <mxGeometry height="80" width="230" x="60" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="operator-partner" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=16;" value="Оператор партнерского&#xa;кол-центра" vertex="1">
+          <mxGeometry height="80" width="230" x="60" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="backoffice" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=16;" value="Сотрудник депозитного&#xa;бэк-офиса" vertex="1">
+          <mxGeometry height="80" width="230" x="60" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="internal-cc" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=16;" value="Система кол-центра банка" vertex="1">
+          <mxGeometry height="90" width="280" x="470" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="deposit-platform" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=18;" value="Сервис депозитных заявок&#xa;и ставок&#xa;Единый источник ставок" vertex="1">
+          <mxGeometry height="120" width="340" x="930" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="file-exchange" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=16;" value="Контур файлового обмена&#xa;SFTP / File Exchange" vertex="1">
+          <mxGeometry height="100" width="280" x="1460" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="partner-cc" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=16;" value="Система партнерского&#xa;кол-центра" vertex="1">
+          <mxGeometry height="100" width="280" x="1460" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="abs" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=16;" value="АБС" vertex="1">
+          <mxGeometry height="90" width="280" x="1460" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;align=left;verticalAlign=top;spacing=8;" value="Фокус Task4: единый источник ставок отдает данные во внутренний кол-центр через API, а партнерскому кол-центру — через файл. АБС не используется как online-источник ставок для консультаций." vertex="1">
+          <mxGeometry height="90" width="1270" x="470" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="operator-internal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=13;" target="internal-cc" value="просмотр ставок">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="internal-cc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=13;" target="deposit-platform" value="API ставок">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="backoffice" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=13;" target="deposit-platform" value="публикация ставок">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="deposit-platform" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=13;" target="file-exchange" value="файл ставок">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1180" y="480" />
+              <mxPoint x="1420" y="480" />
+              <mxPoint x="1420" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="file-exchange" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=13;" target="partner-cc" value="получение файла">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="operator-partner" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=13;" target="partner-cc" value="консультация по ставкам">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1330" y="510" />
+              <mxPoint x="1330" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="deposit-platform" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;dashed=1;html=1;fontSize=13;" target="abs" value="операционный контур&#xa;депозитов">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1230" y="705" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
